@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TowordsFuture - Find Your Dream Job</title>
+    <meta name="description" content="TowordsFuture connects talented professionals with top companies worldwide. Find your dream job or your next star employee.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="#" class="logo" onclick="showPage('home')" aria-label="TowordsFuture Home">Toword$Future</a>
+                <div class="nav-links">
+                    <a href="#" class="active" onclick="showPage('home')" aria-current="page">Home</a>
+                    <a href="#" onclick="showPage('job-listings')">Job Listings</a>
+                    <a href="#" onclick="showPage('companies')">Companies</a>
+                    <a href="#" onclick="showPage('resources')">Resources</a>
+                    <a href="#" onclick="showPage('contact')">Contact</a>
+                </div>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" onclick="showPage('login')">Login</button>
+                    <button class="btn btn-primary" onclick="showPage('login')">Register</button>
+                </div>
+                <div class="nav-right">
+                    <button class="dark-mode-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="mobile-menu-btn" aria-label="Open mobile menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+            <nav class="mobile-nav" aria-label="Mobile navigation">
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('job-listings')">Job Listings</a>
+                <a href="#" onclick="showPage('companies')">Companies</a>
+                <a href="#" onclick="showPage('resources')">Resources</a>
+                <a href="#" onclick="showPage('contact')">Contact</a>
+                <a href="#" onclick="showPage('login')">Login / Register</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Home Page -->
+    <section id="home" class="page active" tabindex="-1">
+        <div class="hero">
+            <div class="container">
+                <h1 class="hero-title">Find Your Dream Job Today</h1>
+                <p class="hero-desc">Discover thousands of job opportunities with top companies around the world. Start your career journey now.</p>
+                <button class="btn btn-primary btn-icon" onclick="showPage('job-listings')">
+                    <i class="fas fa-search"></i> Browse Jobs
+                </button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="categories">
+                <h2>Browse by Category</h2>
+                <div class="category-grid" id="category-list"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Job Listings -->
+    <section id="job-listings" class="page" tabindex="-1">
+        <div class="container">
+            <h2>Find Your Next Opportunity</h2>
+            <div class="filters" id="job-filters"></div>
+            <div class="job-grid" id="job-grid"></div>
+        </div>
+    </section>
+    <!-- Job Details -->
+    <section id="job-details" class="page" tabindex="-1">
+        <div class="container">
+            <div class="job-detail-container" id="job-detail-container"></div>
+        </div>
+    </section>
+    <!-- Login/Register/Admin Page -->
+    <section id="login" class="page" tabindex="-1">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h2>Welcome to TowordsFuture</h2>
+                    <p>Sign in to your account, create a new one, or login as admin</p>
+                </div>
+                <div class="auth-tabs">
+                    <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
+                    <div class="auth-tab" onclick="switchAuthTab('register')">Register</div>
+                    <div class="auth-tab" onclick="switchAuthTab('admin')">Admin</div>
+                </div>
+                <!-- User Login Form -->
+                <form id="login-form" class="auth-form active" aria-label="Login form">
+                    <div class="form-group">
+                        <label for="login-email">Email Address *</label>
+                        <input type="email" id="login-email" name="email" required autocomplete="username">
+                        <div class="error" id="login-email-error">Please enter a valid email address</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password *</label>
+                        <input type="password" id="login-password" name="password" required autocomplete="current-password">
+                        <div class="error" id="login-password-error">Please enter your password</div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                    </div>
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="#" onclick="switchAuthTab('register')">Register now</a></p>
+                    </div>
+                </form>
+                <!-- Register Form -->
+                <form id="register-form" class="auth-form" aria-label="Register form">
+                    <div class="form-group">
+                        <label for="register-name">Full Name *</label>
+                        <input type="text" id="register-name" name="name" required>
+                        <div class="error" id="register-name-error">Please enter your full name</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email Address *</label>
+                        <input type="email" id="register-email" name="email" required autocomplete="email">
+                        <div class="error" id="register-email-error">Please enter a valid email address</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password *</label>
+                        <input type="password" id="register-password" name="password" required autocomplete="new-password">
+                        <div class="error" id="register-password-error">Password must be at least 8 characters</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password *</label>
+                        <input type="password" id="register-confirm" name="confirm" required autocomplete="new-password">
+                        <div class="error" id="register-confirm-error">Passwords do not match</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-type">I am a:</label>
+                        <select id="user-type" name="user-type">
+                            <option value="job-seeker">Job Seeker</option>
+                            <option value="employer">Employer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="#" onclick="switchAuthTab('login')">Sign in</a></p>
+                    </div>
+                </form>
+                <!-- Admin Login Form -->
+                <form id="admin-form" class="auth-form" aria-label="Admin login form">
+                    <div class="form-group">
+                        <label for="admin-username">Admin Username *</label>
+                        <input type="text" id="admin-username" name="username" required>
+                        <div class="error" id="admin-username-error">Please enter admin username</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Admin Password *</label>
+                        <input type="password" id="admin-password" name="password" required>
+                        <div class="error" id="admin-password-error">Please enter admin password</div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Admin Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Placeholder for Companies, Resources, Contact -->
+    <section id="companies" class="page" tabindex="-1">
+        <div class="container"><h2>Companies</h2><p>Feature coming soon!</p></div>
+    </section>
+    <section id="resources" class="page" tabindex="-1">
+        <div class="container"><h2>Resources</h2><p>Feature coming soon!</p></div>
+    </section>
+    <section id="contact" class="page" tabindex="-1">
+        <div class="container"><h2>Contact Us</h2><p>Feature coming soon!</p></div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TowordsFuture</h3>
+                    <p>Connecting talented professionals with top companies worldwide. Find your dream job or your next star employee.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>For Job Seekers</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Career Resources</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Job Alerts</a></li>
+                        <li><a href="#">Salary Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>For Employers</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Search Resumes</a></li>
+                        <li><a href="#">Recruiting Solutions</a></li>
+                        <li><a href="#">Pricing Plans</a></li>
+                        <li><a href="#">Employer Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 198, Salem , Tamil Nadu, India   </li>
+                        <li><i class="fas fa-phone"></i> (+91) 80153 41010 </li>
+                        <li><i class="fas fa-envelope"></i> info@careerconnect.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TowordsFuture. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

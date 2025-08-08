@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Details | CareerConnect</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/6c75fbc3d8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar container">
+      <a href="index.html" class="logo">CareerConnect</a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="#">Companies</a>
+        <a href="#">Resources</a>
+        <a href="#">Login</a>
+      </div>
+      <div class="nav-right">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="#">Companies</a>
+      <a href="#">Resources</a>
+      <a href="#">Login</a>
+    </div>
+  </header>
+
+  <section class="container job-detail-container">
+    <div id="job-detail" class="job-detail">Loading job...</div>
+
+    <div class="apply-form">
+      <h2>Apply for this Job</h2>
+      <form id="application-form">
+        <div class="form-group">
+          <label for="full-name">Full Name *</label>
+          <input type="text" id="full-name" name="full-name" required />
+          <div class="error" id="name-error">Please enter your full name</div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required />
+          <div class="error" id="email-error">Please enter a valid email address</div>
+        </div>
+        <div class="form-group">
+          <label for="resume">Resume *</label>
+          <div class="file-input">
+            <input type="file" id="resume" name="resume" accept=\"application/pdf, .doc, .docx\" required />
+            <label for="resume"><i class="fas fa-upload"></i> Choose File</label>
+            <span class="file-name" id="file-name">No file chosen</span>
+            <div class="error" id="resume-error">Please upload your resume</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cover-letter">Cover Letter</label>
+          <textarea id="cover-letter" name="cover-letter" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="jobs.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

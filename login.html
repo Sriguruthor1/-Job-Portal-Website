@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerConnect - Login</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/6c75fbc3d8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-header">
+      <h2>Welcome Back</h2>
+      <p>Login to your CareerConnect account</p>
+    </div>
+    <form id="login-form" class="auth-form">
+      <div class="form-group">
+        <label for="login-email">Email Address *</label>
+        <input type="email" id="login-email" name="email" required>
+        <div class="error" id="login-email-error">Please enter a valid email address</div>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password *</label>
+        <input type="password" id="login-password" name="password" required>
+        <div class="error" id="login-password-error">Please enter your password</div>
+      </div>
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="#">Forgot password?</a>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+      <div class="form-footer">
+        <p>Don't have an account? <a href="register.html">Register now</a></p>
+        <p><a href="index.html">← Back to Home</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

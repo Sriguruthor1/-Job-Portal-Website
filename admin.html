@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerConnect - Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/6c75fbc3d8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Admin Navigation -->
+    <nav class="admin-nav">
+      <a href="#jobs" class="btn btn-outline">Manage Jobs</a>
+      <a href="#applicants" class="btn btn-outline">View Applicants</a>
+      <a href="index.html" class="btn btn-primary">← Back to Home</a>
+      <a href="job-detail.html?id=job-frontend" class="btn btn-outline">Preview</a>
+
+    </nav>
+
+    <!-- Manage Job Postings -->
+    <section id="jobs" class="admin-section">
+      <h2>Posted Jobs</h2>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Job ID</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>job-frontend</td>
+            <td>Senior Frontend Developer</td>
+            <td>TechVision Inc.</td>
+            <td>San Francisco</td>
+            <td>
+              <button class="btn btn-outline">Edit</button>
+              <button class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>job-ui</td>
+            <td>UX/UI Designer</td>
+            <td>CreativeMinds</td>
+            <td>Remote</td>
+            <td>
+              <button class="btn btn-outline">Edit</button>
+              <button class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          <!-- Add more jobs here -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- View Applicants -->
+    <section id="applicants" class="admin-section">
+      <h2>Applicant Submissions</h2>
+      <p>(In a real app, form submissions would be listed here from a database)</p>
+      <ul class="applicant-list">
+        <li><strong>Alice Johnson</strong> applied for <em>Senior Frontend Developer</em> – alice@example.com</li>
+        <li><strong>Ravi Kumar</strong> applied for <em>UX/UI Designer</em> – ravi.kumar@example.com</li>
+        <!-- Simulated entries -->
+      </ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerConnect - Register</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/6c75fbc3d8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-header">
+      <h2>Create an Account</h2>
+      <p>Join CareerConnect to start your journey</p>
+    </div>
+    <form id="register-form" class="auth-form">
+      <div class="form-group">
+        <label for="register-name">Full Name *</label>
+        <input type="text" id="register-name" name="name" required>
+        <div class="error" id="register-name-error">Please enter your full name</div>
+      </div>
+      <div class="form-group">
+        <label for="register-email">Email Address *</label>
+        <input type="email" id="register-email" name="email" required>
+        <div class="error" id="register-email-error">Please enter a valid email address</div>
+      </div>
+      <div class="form-group">
+        <label for="register-password">Password *</label>
+        <input type="password" id="register-password" name="password" required>
+        <div class="error" id="register-password-error">Password must be at least 8 characters</div>
+      </div>
+      <div class="form-group">
+        <label for="register-confirm">Confirm Password *</label>
+        <input type="password" id="register-confirm" name="confirm" required>
+        <div class="error" id="register-confirm-error">Passwords do not match</div>
+      </div>
+      <div class="form-group">
+        <label for="user-type">I am a:</label>
+        <select id="user-type" name="user-type">
+          <option value="job-seeker">Job Seeker</option>
+          <option value="employer">Employer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+      <div class="form-footer">
+        <p>Already have an account? <a href="login.html">Sign in</a></p>
+        <p><a href="index.html">← Back to Home</a
