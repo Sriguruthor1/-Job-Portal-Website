@@ -324,11 +324,11 @@ const jobs = [
 ];
 
 const locations = [
-    {id:"new-york", name:"New York"},
-    {id:"san-francisco", name:"San Francisco"},
-    {id:"london", name:"London"},
-    {id:"berlin", name:"Berlin"},
-    {id:"tokyo", name:"Tokyo"},
+    {id:"kochi", name:"Kochi"},
+    {id:"bangalore", name:"Bangalore"},
+    {id:"chennai", name:"Chennai"},
+    {id:"pune", name:"Pune"},
+    {id:"hyderabad", name:"Hyderabad"},
     {id:"remote", name:"Remote"}
 ];
 const experiences = [
