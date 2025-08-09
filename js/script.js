@@ -466,6 +466,14 @@ function showJobDetails(jobId) {
             </div>
             <div class="job-actions">
 
+            <button class="btn btn-primary" onclick="
+    document.querySelector('.apply-form').scrollIntoView({behavior: 'smooth'});
+    const form = document.querySelector('.apply-form');
+    form.style.boxShadow = '0 0 15px 3px #ff9800';
+    setTimeout(()=>form.style.boxShadow = '', 1500);
+">Apply Now</button>
+
+
             <button class="btn btn-outline save-job${savedJobs.includes(job.id)?' saved':''}" onclick="toggleSaveJob('${job.id}',this)">
                     <i class="${savedJobs.includes(job.id)?'fas':'far'} fa-heart"></i> Save Job
                 </button>
